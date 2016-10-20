@@ -122,7 +122,7 @@ body {
   display: inline-block;
   position: absolute;
   top: 0;
-  background-color: #67CF22;
+  background-color: #428bca;
   border-radius: 100%;
    
   -webkit-animation: bounce 2.0s infinite ease-in-out;
