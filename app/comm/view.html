@@ -1,0 +1,29 @@
+<h1 ng-if="message">{{message}}</h1>
+<h2 class="title_h2">{{title}}</h2>
+<div class="list-group">
+  <a href="#" class="list-group-item" ng-repeat="item in subjects">
+    <div class="media">
+    	<div class="media-left">
+    		<img ng-src="{{item.images.small}}" alt="item.original_title">
+    	</div>
+  		<div class="media-body">
+    		<h3 class="media-heading">{{item.title}}</h3>
+    		<p>导演:<span ng-repeat="item in item.directors">{{item.name+($last?'':'、')}}</span></p>
+    		<p>类型:{{item.genres.join('、')}}</p>
+    		<p>主演:<span ng-repeat="item in item.casts">{{item.name+($last?'':'、')}}</span></p>
+	  </div>
+	</div>
+  </a>
+</div>
+
+  <!-- <ul class="pager" ng-if="loading">
+    <li><a ng-click="fanye(currentPage-1)" href="javascript:;">&larr; 上一页</a></li>
+    <li><a ng-click="fanye(currentPage+1)" href="javascript:;">下一页 &rarr;</a></li>
+  </ul> -->
+  <ul uib-pagination total-items="totalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination" boundary-link-numbers="true" ng-change="pageChanged()" ng-show="loading" previous-text="上一页" Next-text="下一页"></ul>
+
+<p ng-if="loading">总共：{{totalItems}}条记录<br/><span>当前第：{{bigCurrentPage}}/{{page}}页</span></p>
+<div class="spinner" ng-if="!loading">
+  <div class="dot1"></div>
+  <div class="dot2"></div>
+</div>
